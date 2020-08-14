@@ -1,68 +1,71 @@
 #include<stdio.h>
-#include<conio.h>
+#include<stdio.h>
 int maxsize=10;
-int queue[10];
-int top=0,item;
-
-int enqueue(int item)
-{
-    if (!isempty())
-    {
-        queue[top]=item;
-        top=top+1;
-        printf("pushed element is %d\n",item);
-        return item;
-    }
-    else
-    {
-        printf("queue is full");
-    }       
-}
-int dequeue()
-{
-    if (!isempty())
-    {
-        item=queue[0];
-        top=top-1;
-        printf("popped element is %d\n",item);
-        return item;
-    }
-    else
-    {
-        printf("the queue is empty");
-    }
-}
+int data,top,stack[10];
 int isempty()
 {
-    if (top==-1)
-    {
-        return -1;
-    }
-    else
-    {
-        return 0;
-    }    
+  if (top==-1)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }
 int isfull()
 {
-    if (top==maxsize)
-    {
-        return 1;
-        //printf("queue is full");
-    }
-    else
-    {
-        return 0;
-    }
-    
+  if (top==maxsize)
+  {
+    return 1;
+  }
+  {
+    return 0;
+  }
 }
+int push(int data)
+{
+  if (!isfull)
+  {top+=1;
+    stack[top]=data;
+    print("%d\n",data);
+    return data;
+  }
+  else
+    printf("stack is full");
+}
+int pop()
+{
+  if (!isempty)
+  {
+    top-=1;
+    data=stack[top];
+    print("%d\n",data);
+    return data;
+  }
+  else
+    printf("stack is empty");
+}
+int peek()
+{
+  //print("%d\n",stack[pop]);
+  return stack[top];
+}
+
 int main()
 {
-    enqueue(3);
-    enqueue(4);
-    enqueue(5);
-    printf("%s\n",isempty()?"true":"false");
-    printf("%s\n",isfull()?"true":"false");
-    dequeue();
+  push(3);
+  push(4);
+  push(5);
+  printf("peek element %d\n",peek());
+  
+  while(!isempty)
+  {
+    int data=pop();
+    printf("%d \n",data);
     
+  }
+  
+  printf("Stack full: %s\n" , isfull()?"true":"false");
+  printf("Stack empty: %s\n" , isempty()?"true":"false");
 }
