@@ -6,7 +6,7 @@ int top=0,item;
 
 int enqueue(int item)
 {
-    if (!isempty())
+    if (!full())
     {
         queue[top]=item;
         top=top+1;
